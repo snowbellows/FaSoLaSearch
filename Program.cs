@@ -44,8 +44,20 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+// GET all parts
 app.MapGet("/part", async (PartContext db) => await db.Parts.ToListAsync());
 
+// GET part by id
+app.MapGet(
+    "/part/{id}",
+    async (PartContext db, int id) =>
+    {
+        var part = await db.Parts.FindAsync(id);
+        return part is null ? Results.NotFound() : Results.Ok(part);
+    }
+);
+
+// POST new part
 app.MapPost(
     "/part",
     async (PartContext db, Part part) =>
@@ -53,6 +65,57 @@ app.MapPost(
         await db.Parts.AddAsync(part);
         await db.SaveChangesAsync();
         return Results.Created($"/part/{part.PartId}", part);
+    }
+);
+
+// PUT update part
+app.MapPut(
+    "/part/{id}",
+    async (PartContext db, int id, Part updatedPart) =>
+    {
+        if (id != updatedPart.PartId)
+        {
+            return Results.BadRequest("ID mismatch");
+        }
+
+        var part = await db.Parts.FindAsync(id);
+        if (part is null)
+        {
+            return Results.NotFound();
+        }
+
+        // Update properties
+        part.SongNumber = updatedPart.SongNumber;
+        part.SongName = updatedPart.SongName;
+        part.Name = updatedPart.Name;
+        part.First = updatedPart.First;
+        part.Second = updatedPart.Second;
+        part.Third = updatedPart.Third;
+        part.Fourth = updatedPart.Fourth;
+        part.Fifth = updatedPart.Fifth;
+        part.Sixth = updatedPart.Sixth;
+        part.Seventh = updatedPart.Seventh;
+        part.Eighth = updatedPart.Eighth;
+
+        await db.SaveChangesAsync();
+        return Results.NoContent();
+    }
+);
+
+// DELETE part
+app.MapDelete(
+    "/part/{id}",
+    async (PartContext db, int id) =>
+    {
+        var part = await db.Parts.FindAsync(id);
+        if (part is null)
+        {
+            return Results.NotFound();
+        }
+
+        db.Parts.Remove(part);
+        await db.SaveChangesAsync();
+        return Results.NoContent();
     }
 );
 
