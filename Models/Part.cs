@@ -5,7 +5,7 @@ namespace FaSoLaSearch.Models
     public class Part
     {
         public int PartId { get; set; }
-        public required int SongNumber { get; set; }
+        public required string SongNumber { get; set; }
         public required string SongName { get; set; }
         public required string Name { get; set; }
         public required char First { get; set; }

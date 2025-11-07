@@ -1,5 +1,9 @@
+using System.Globalization;
+using System.Text;
+using CsvHelper;
 using FaSoLaSearch.Data;
 using FaSoLaSearch.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -48,7 +52,48 @@ app.MapPost(
     {
         await db.Parts.AddAsync(part);
         await db.SaveChangesAsync();
-        return Results.Created($"/pizza/{part.PartId}", part);
+        return Results.Created($"/part/{part.PartId}", part);
+    }
+);
+
+app.MapPost(
+    "/parts/csv",
+    async (
+        PartContext db,
+        [FromHeader(Name = "Content-Type")] string contentType,
+        [FromBody] Stream body
+    ) =>
+    {
+        try
+        {
+            if (!contentType?.StartsWith("text/plain") ?? true)
+            {
+                return Results.BadRequest("Content-Type must be text/plain");
+            }
+
+            using var reader = new StreamReader(body);
+            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+
+            // Configure CSV mapping
+            csv.Context.RegisterClassMap<PartMap>();
+
+            var parts = csv.GetRecordsAsync<Part>().ToBlockingEnumerable().ToList();
+
+            // Validate records
+            if (parts.Count == 0)
+            {
+                return Results.BadRequest("No valid records found in CSV");
+            }
+
+            await db.Parts.AddRangeAsync(parts);
+            await db.SaveChangesAsync();
+
+            return Results.Created("/parts", new { Count = parts.Count });
+        }
+        catch (Exception ex)
+        {
+            return Results.BadRequest($"Error processing CSV: {ex.Message}");
+        }
     }
 );
 
