@@ -1,6 +1,14 @@
+using FaSoLaSearch.Data;
+using FaSoLaSearch.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add PostgreSQL database context
+builder.Services.AddDbContext<PartContext>(options =>
+    options.UseNpgsql(builder.Configuration["Parts:DatabaseConnection"])
+);
 
 // Add Swagger services in development environment
 if (builder.Environment.IsDevelopment())
@@ -32,6 +40,16 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/part", async (PartContext db) => await db.Parts.ToListAsync());
+
+app.MapPost(
+    "/part",
+    async (PartContext db, Part part) =>
+    {
+        await db.Parts.AddAsync(part);
+        await db.SaveChangesAsync();
+        return Results.Created($"/pizza/{part.PartId}", part);
+    }
+);
 
 app.Run();
