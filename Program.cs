@@ -44,8 +44,46 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-// GET all parts
-app.MapGet("/part", async (PartContext db) => await db.Parts.ToListAsync());
+// GET all parts with optional note filters
+app.MapGet(
+    "/part",
+    async (
+        PartContext db,
+        [FromQuery] string? partName,
+        [FromQuery] char? first,
+        [FromQuery] char? second,
+        [FromQuery] char? third,
+        [FromQuery] char? fourth,
+        [FromQuery] char? fifth,
+        [FromQuery] char? sixth,
+        [FromQuery] char? seventh,
+        [FromQuery] char? eighth
+    ) =>
+    {
+        var query = db.Parts.AsQueryable();
+
+        if (partName is not null)
+            query = query.Where(p => p.Name.ToLower() == partName.ToLower());
+        if (first.HasValue)
+            query = query.Where(p => p.First == first.Value);
+        if (second.HasValue)
+            query = query.Where(p => p.Second == second.Value);
+        if (third.HasValue)
+            query = query.Where(p => p.Third == third.Value);
+        if (fourth.HasValue)
+            query = query.Where(p => p.Fourth == fourth.Value);
+        if (fifth.HasValue)
+            query = query.Where(p => p.Fifth == fifth.Value);
+        if (sixth.HasValue)
+            query = query.Where(p => p.Sixth == sixth.Value);
+        if (seventh.HasValue)
+            query = query.Where(p => p.Seventh == seventh.Value);
+        if (eighth.HasValue)
+            query = query.Where(p => p.Eighth == eighth.Value);
+
+        return await query.ToListAsync();
+    }
+);
 
 // GET part by id
 app.MapGet(
