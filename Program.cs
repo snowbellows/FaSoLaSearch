@@ -57,16 +57,6 @@ app.MapGet(
     }
 );
 
-// GET part by id
-app.MapGet(
-    "/part/{id}",
-    async (PartContext db, int id) =>
-    {
-        var part = await db.Parts.FindAsync(id);
-        return part is null ? Results.NotFound() : Results.Ok(part);
-    }
-);
-
 // POST new part
 app.MapPost(
     "/part",
