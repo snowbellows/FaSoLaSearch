@@ -66,9 +66,9 @@ app.MapPost(
     {
         try
         {
-            if (!contentType?.StartsWith("text/plain") ?? true)
+            if (!contentType?.StartsWith("text/csv") ?? true)
             {
-                return Results.BadRequest("Content-Type must be text/plain");
+                return Results.BadRequest("Content-Type must be text/csv");
             }
 
             using var reader = new StreamReader(body);
