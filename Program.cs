@@ -11,7 +11,45 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add PostgreSQL database context
 builder.Services.AddDbContext<PartContext>(options =>
-    options.UseNpgsql(builder.Configuration["Parts:DatabaseConnection"])
+    options
+        .UseNpgsql(builder.Configuration["Parts:DatabaseConnection"])
+        // Seed database if empty
+        .UseSeeding(
+            (context, _) =>
+            {
+                if (!context.Set<Part>().Any())
+                {
+                    using var reader = new StreamReader("Data/seed_parts.csv");
+                    using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+
+                    // Configure CSV mapping
+                    csv.Context.RegisterClassMap<PartMap>();
+
+                    var parts = csv.GetRecordsAsync<Part>().ToBlockingEnumerable().ToList();
+                    context.Set<Part>().AddRange(parts);
+                    context.SaveChanges();
+                }
+            }
+        )
+        .UseAsyncSeeding(
+            async (context, _, cancellationToken) =>
+            {
+                if (!await context.Set<Part>().AnyAsync(cancellationToken))
+                {
+                    using var reader = new StreamReader("Data/seed_parts.csv");
+                    using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+
+                    // Configure CSV mapping
+                    csv.Context.RegisterClassMap<PartMap>();
+
+                    var parts = csv.GetRecordsAsync<Part>(cancellationToken)
+                        .ToBlockingEnumerable(cancellationToken)
+                        .ToList();
+                    await context.Set<Part>().AddRangeAsync(parts, cancellationToken);
+                    await context.SaveChangesAsync(cancellationToken);
+                }
+            }
+        )
 );
 
 // Add Swagger services in development environment
@@ -154,48 +192,6 @@ app.MapDelete(
         db.Parts.Remove(part);
         await db.SaveChangesAsync();
         return Results.NoContent();
-    }
-);
-
-// POST bulk new parts from CSV
-app.MapPost(
-    "/part/csv",
-    async (
-        PartContext db,
-        [FromHeader(Name = "Content-Type")] string contentType,
-        [FromBody] Stream body
-    ) =>
-    {
-        try
-        {
-            if (!contentType?.StartsWith("text/csv") ?? true)
-            {
-                return Results.BadRequest("Content-Type must be text/csv");
-            }
-
-            using var reader = new StreamReader(body);
-            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-
-            // Configure CSV mapping
-            csv.Context.RegisterClassMap<PartMap>();
-
-            var parts = csv.GetRecordsAsync<Part>().ToBlockingEnumerable().ToList();
-
-            // Validate records
-            if (parts.Count == 0)
-            {
-                return Results.BadRequest("No valid records found in CSV");
-            }
-
-            await db.Parts.AddRangeAsync(parts);
-            await db.SaveChangesAsync();
-
-            return Results.Created("/parts", new { Count = parts.Count });
-        }
-        catch (Exception ex)
-        {
-            return Results.BadRequest($"Error processing CSV: {ex.Message}");
-        }
     }
 );
 

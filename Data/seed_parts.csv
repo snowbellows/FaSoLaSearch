@@ -1,0 +1,150 @@
+SongNumber,SongName,Name,First,Second,Third,Fourth,Fifth,Sixth,Seventh,Eighth
+26,Samaria,Treble,l,l,l,l,s,f,l,l
+26,Samaria,Alto,f,l,f,f,m,l,m,f
+26,Samaria,Tenor,l,f,f,f,s,l,s,l
+26,Samaria,Bass,l,l,l,l,m,f,s,l
+27t,Bethel,Treble,l,l,s,l,s,s,f,l
+27t,Bethel,Alto,f,f,l,f,s,l,l,m
+27t,Bethel,Tenor,l,f,l,l,s,f,m,l
+27t,Bethel,Bass,l,l,f,l,s,f,m,l
+27b,Rochester,Treble,l,l,s,f,l,f,s,l
+27b,Rochester,Alto,s,l,m,f,s,l,s,s
+27b,Rochester,Tenor,f,f,s,l,f,s,m,f
+27b,Rochester,Bass,f,l,s,f,f,f,s,f
+28t,Aylesbury,Treble,l,f,m,l,s,l,f,l
+28t,Aylesbury,Alto,l,f,s,l,l,l,s,l
+28t,Aylesbury,Tenor,l,l,s,f,m,l,l,s
+28t,Aylesbury,Bass,l,l,s,l,l,l,l,f
+28b,Wells,Treble,l,s,s,l,s,f,l,s
+28b,Wells,Alto,s,s,s,l,s,f,f,m
+28b,Wells,Tenor,f,l,s,f,m,f,l,s
+28b,Wells,Bass,f,f,m,f,l,f,s,s
+29t,Fairfield,Treble,l,f,l,l,s,f,f,m
+29t,Fairfield,Alto,l,l,l,s,s,l,l,l
+29t,Fairfield,Tenor,l,f,l,l,s,l,l,m
+29t,Fairfield,Bass,l,l,f,m,s,l,l,l
+29b,Tribulation,Treble,l,l,s,l,s,l,l,s
+29b,Tribulation,Tenor,f,s,l,l,s,l,l,s
+29b,Tribulation,Bass,l,l,f,m,l,l,f,f
+30t,Love Divine,Treble,s,s,f,f,l,s,f,l
+30t,Love Divine,Alto,l,l,s,s,l,s,s,l
+30t,Love Divine,Tenor,f,f,l,l,l,m,f,l
+30t,Love Divine,Bass,f,f,s,s,f,m,l,s
+30b,Prospect,Treble,f,s,l,f,l,s,s,f
+30b,Prospect,Alto,l,l,l,s,s,l,s,l
+30b,Prospect,Tenor,s,l,f,f,l,s,f,l
+30b,Prospect,Bass,s,l,f,f,l,s,s,f
+31t,Ninety-Third Psalm,Treble,f,f,s,s,s,l,f,l
+31t,Ninety-Third Psalm,Alto,s,l,l,s,s,f,s,f
+31t,Ninety-Third Psalm,Tenor,s,l,f,l,s,f,l,s
+31t,Ninety-Third Psalm,Bass,f,f,l,s,l,s,f,f
+31b,Webster,Treble,s,s,f,l,s,l,s,f
+31b,Webster,Alto,l,f,m,f,s,l,l,l
+31b,Webster,Tenor,f,l,s,l,s,f,s,f
+31b,Webster,Bass,f,f,s,l,s,f,f,l
+32t,Corinth,Treble,s,l,s,s,s,l,s,l
+32t,Corinth,Alto,l,f,s,l,l,f,m,f
+32t,Corinth,Tenor,f,l,s,f,f,l,s,s
+32t,Corinth,Bass,f,l,s,s,s,l,s,f
+32t,Corinth,Bass,f,l,s,s,f,l,s,f
+32b,Distress,Treble,l,l,f,l,l,l,l,l
+32b,Distress,Alto,f,l,m,f,s,f,l,f
+32b,Distress,Tenor,l,f,s,l,s,f,l,s
+32b,Distress,Bass,l,f,m,l,l,l,l,l
+33t,Weeping Savior,Treble,l,l,l,f,s,l,l,l
+33t,Weeping Savior,Alto,f,l,f,l,m,f,f,l
+33t,Weeping Savior,Tenor,l,f,l,f,s,l,l,f
+33t,Weeping Savior,Bass,l,f,l,s,l,l,l,l
+33b,Abbeville,Treble,s,s,l,s,l,s,f,s
+33b,Abbeville,Alto,l,f,f,m,l,l,s,s
+33b,Abbeville,Tenor,f,l,f,l,s,l,m,f
+33b,Abbeville,Bass,f,f,s,l,s,f,f,l
+34t,The Gospel Pool,Treble,s,l,f,l,f,l,s,s
+34t,The Gospel Pool,Alto,f,l,s,l,l,s,l,l
+34t,The Gospel Pool,Tenor,f,l,s,l,s,l,s,f
+34t,The Gospel Pool,Bass,f,f,l,s,l,f,f,f
+34b,St. Thomas,Treble,f,l,l,s,s,l,s,f
+34b,St. Thomas,Alto,s,s,s,s,s,l,s,s
+34b,St. Thomas,Tenor,s,f,f,l,s,f,s,l
+34b,St. Thomas,Bass,f,l,s,f,m,l,s,f
+35,Saints Bound For Heaven,Treble,f,s,l,l,s,s,l,s
+35,Saints Bound For Heaven,Alto,f,s,f,f,l,l,f,m
+35,Saints Bound For Heaven,Tenor,l,s,l,f,f,f,l,s
+35,Saints Bound For Heaven,Bass,l,s,l,l,f,f,l,s
+36t,America,Treble,l,l,l,s,f,s,l,l
+36t,America,Alto,l,l,l,s,s,l,s,l
+36t,America,Tenor,l,l,f,m,l,l,s,l
+36t,America,Bass,l,f,l,s,l,l,l,f
+36b,Ninety-Fifth,Treble,l,l,s,f,s,f,s,l
+36b,Ninety-Fifth,Alto,s,s,s,f,m,l,s,s
+36b,Ninety-Fifth,Tenor,f,f,s,l,f,l,s,f
+36b,Ninety-Fifth,Bass,f,f,m,f,l,l,s,f
+37t,Ester,Treble,s,s,l,l,s,s,f,f
+37t,Ester,Alto,f,f,f,f,s,f,f,s
+37t,Ester,Tenor,f,l,s,s,l,s,f,f
+37t,Ester,Bass,f,l,f,f,l,s,s,f
+37b,Liverpool,Treble,s,l,l,s,l,s,l,f
+37b,Liverpool,Alto,l,l,s,f,l,f,s,f
+37b,Liverpool,Tenor,f,f,s,l,s,l,s,l
+37b,Liverpool,Bass,f,l,l,s,l,s,l,m
+38t,Winter,Treble,f,l,s,f,s,l,l,s
+38t,Winter,Alto,f,f,f,f,f,s,l,l
+38t,Winter,Tenor,f,s,s,l,s,f,s,l
+38t,Winter,Bass,f,f,l,f,l,s,f,f
+38b,Windham,Treble,l,l,s,f,f,l,l,l
+38b,Windham,Alto,l,l,s,s,l,s,s,l
+38b,Windham,Tenor,l,f,s,l,l,f,m,l
+38b,Windham,Bass,l,l,m,f,l,l,l,l
+39t,Detroit,Treble,l,s,f,l,l,s,s,l
+39t,Detroit,Alto,l,l,s,l,l,s,s,l
+39t,Detroit,Tenor,l,f,s,l,f,s,f,l
+39t,Detroit,Bass,l,f,m,l,f,s,l,l
+39b,Sharpsburg,Treble,f,f,l,s,f,l,s,f
+39b,Sharpsburg,Alto,l,s,f,s,s,l,s,l
+39b,Sharpsburg,Tenor,s,s,l,f,s,f,l,s
+39b,Sharpsburg,Bass,f,f,f,f,f,s,s,f
+40,Lenox,Treble,f,l,l,f,f,m,s,f
+40,Lenox,Alto,l,s,s,s,f,s,s,l
+40,Lenox,Tenor,f,f,f,s,l,s,s,f
+40,Lenox,Bass,f,f,f,l,f,s,s,l
+41,Evening Hymn,Treble,l,f,f,m,l,s,s,l
+41,Evening Hymn,Alto,l,l,l,s,l,l,l,l
+41,Evening Hymn,Tenor,l,l,l,s,f,m,m,f
+41,Evening Hymn,Bass,l,l,l,s,l,l,l,f
+42,Clamanda,Treble,l,s,l,l,s,f,s,l
+42,Clamanda,Alto,l,s,l,l,s,f,m,l
+42,Clamanda,Tenor,l,f,l,l,s,f,s,l
+42,Clamanda,Bass,l,s,l,l,s,f,m,l
+43,Primrose Hill,Treble,f,s,s,s,l,s,l,l
+43,Primrose Hill,Alto,l,f,f,l,l,s,s,s
+43,Primrose Hill,Tenor,s,l,l,f,f,f,f,f
+43,Primrose Hill,Bass,s,f,f,f,f,s,s,s
+44,The Converted Thief,Treble,f,f,l,s,l,s,s,f
+44,The Converted Thief,Alto,l,l,l,s,f,m,m,l
+44,The Converted Thief,Tenor,l,s,l,s,l,f,s,s
+44,The Converted Thief,Bass,l,f,f,s,s,s,s,l
+45t,New Britain,Treble,f,l,l,s,s,l,l,s
+45t,New Britain,Alto,l,l,f,f,m,l,l,m
+45t,New Britain,Tenor,s,f,l,f,l,s,f,l
+45t,New Britain,Bass,f,f,s,l,s,f,l,s
+45b,Imandra New,Treble,s,l,f,l,f,s,l,s
+45b,Imandra New,Alto,l,l,l,s,l,f,f,f
+45b,Imandra New,Tenor,f,l,s,l,l,s,l,f
+45b,Imandra New,Bass,f,f,l,s,f,l,f,l
+46,Let Us Sing,Treble,l,s,s,f,s,s,s,l
+46,Let Us Sing,Alto,f,f,f,f,f,f,f,s
+46,Let Us Sing,Tenor,f,l,l,s,f,l,l,s
+46,Let Us Sing,Bass,f,f,s,s,s,f,f,s
+47t,Primrose,Treble,f,l,s,s,f,s,s,f
+47t,Primrose,Alto,s,s,s,s,s,l,f,s
+47t,Primrose,Tenor,s,f,s,l,s,f,l,s
+47t,Primrose,Bass,s,f,s,l,s,f,s,s
+47t,Primrose,Bass,f,f,s,l,s,f,s,s
+47b,Idumea,Treble,f,l,s,f,s,l,l,s
+47b,Idumea,Alto,l,f,m,l,s,s,l,f
+47b,Idumea,Tenor,l,l,s,l,f,s,f,l
+47b,Idumea,Bass,l,l,s,l,l,l,l,s
+48t,Devotion,Treble,f,l,l,s,m,f,l,s
+48t,Devotion,Alto,l,l,s,l,s,s,f,s
+48t,Devotion,Tenor,s,l,f,l,s,l,f,f
+48t,Devotion,Bass,f,l,f,s,s,l,s,f
